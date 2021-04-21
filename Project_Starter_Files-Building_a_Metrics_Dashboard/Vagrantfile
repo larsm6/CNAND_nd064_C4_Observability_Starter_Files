@@ -109,7 +109,11 @@ Vagrant.configure("2") do |config|
           path: "scripts/conf/helm.sh",
           args: args
           
-
+  args = []
+      config.vm.provision "jaeger configuration", type: "shell",
+          path: "scripts/conf/jaeger.sh",
+          args: args
+    
   args = []
       config.vm.provision "kubectl test script", type: "shell",
           path: "scripts/conf/kubectl-get-pods.sh",
