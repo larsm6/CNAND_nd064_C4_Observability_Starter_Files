@@ -1,3 +1,7 @@
+#!/bin/bash
+
+# More detailed introduction to Jaeger can be found on the following page:
+# https://www.jaegertracing.io/docs/1.22/operator/
 
 # Create Jaeger Hotrod
 echo "***** Create Jaeger Hotrod"
