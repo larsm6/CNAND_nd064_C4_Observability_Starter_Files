@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: hotrod
+  namespace: observability
   labels:
     app: hotrod
 spec:
@@ -9,6 +10,11 @@ spec:
     matchLabels:
       app: hotrod
       tier: frontend
+  template:
+    metadata:
+      labels:
+        app: hotrod
+        tier: frontend
     spec:
       containers:
       - image: jaegertracing/example-hotrod:latest
@@ -17,7 +23,7 @@ spec:
         - name: JAEGER_AGENT_HOST
           value: jaeger
         - name: JAEGER_AGENT_PORT
-          value: 6831
+          value: "6831"
         ports:
         - containerPort: 8080
           name: hotrod
