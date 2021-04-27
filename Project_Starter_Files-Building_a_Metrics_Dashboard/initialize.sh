@@ -18,24 +18,13 @@ sh ./scripts/conf/jaeger-cluster-visibility.sh
 # Create Load Balancer
 sh ./scripts/conf/kubectl-create-loadbalancer.sh
 
+# Initialize App
+sh ./scripts/initialize-app.sh
+
 # Get Pods
 sh ./scripts/conf/kubectl-get-pods.sh
 
-
-
-# navigate to sample-app/manifests/
-cd manifests
-
-# Initialize the application.
-kubectl apply -f app/
-
-
-
-
-
-cd $project_path
-
-# Forward Grafana Port
+# Forward Grafana Port in Background
 sh ./scripts/conf/kubectl-port-forward.sh
 
 
