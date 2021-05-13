@@ -38,13 +38,30 @@ trial-service      LoadBalancer   100.68.191.3     <pending>     8080:31204/TCP 
 - [x] *TODO:* Describe, in your own words, what the SLIs are, based on an SLO of *monthly uptime* and *request response time*.
 
 __Answer:__ 
-- In general SLIs are metrics, that indicate whether we have reached a specific goal. Such a goal is given by a SLO (Service Level Objective). In our case we have *monthly uptime* and *request response time*. So we need to ask ourselfs: 'what do we need to measure in order to fulfill those SLOs?' 
+- In general Service Level Indicators (SLIs) are metrics, that indicate whether we have reached a specific goal. Such a goal is given by a SLO (Service Level Objective). In our case we have *monthly uptime* and *request response time*. So we need to ask ourselfs: 'what do we need to measure in order to fulfill those SLOs?' 
 - A given SLO of *"monthly uptime should be XX% or higher"* would be measured by the the fraction of time that a service is usable within a month. In order to do so, we need validate that at least XX% of all requests are successful.
 - A given SLO of *request response time should be less than 70ms* would be measured by monitoring the average latency of requests within a certain periode of time and validating that it is less than 70ms. 
 
 
 ## Creating SLI metrics.
 - [ ] *TODO:* It is important to know why we want to measure certain metrics for our customer. Describe in detail 5 metrics to measure these SLIs. 
+
+__Answer:__
+- The reason for measuring certain metrics for our customer is, that we want to guarantee, that a specific service or application has a minimum level of performance. Therefore we have to identify Service Level Objectives that need to be met. An easy approach to identifying SLOs is using the "four core properties, called the __Four Golden Signals__" (see: Udacity Cloud Native Application Architecture - BETA Nanodegree => 4. Observability => SLOs, SLIs, and Error Budgets => Big Picture: Measuring Performance). These are 
+   - Latency,
+   - Traffic, 
+   - Errors and 
+   - Saturation.
+- A common Service Level Agreement is based on the uptime. So we could add it to the list of helpful SLOs for a customer.
+- Based on those SLO's and provided examples I created a table to describe the metrics for measuring corresponding SLI's:
+
+| SLO        | Example | SLI      |
+| :--------- | :–-----: | :–-----: |
+| Uptime     | The weekly uptime should be 99.1% or higher | In order to measure Uptime realiable, we would need to look wether each request returned a successful response. Problems come attached to such a way of monitoring the uptime: e.g. we wouldn't know if requests or responses get lost. So we might want to use a different approach and send a specific GET request from the client on a regular basis (e.g. every X minute) which is supposed to be answered by a 200 Status response. Then we could alert if this might fail. |
+| Latency    |  |  |
+| Traffic    |  |  |
+| Errors     |  |  |
+| Saturation |  |  |
 
 ## Create a Dashboard to measure our SLIs
 - [ ] *TODO:* Create a dashboard to measure the uptime of the frontend and backend services We will also want to measure to measure 40x and 50x errors. Create a dashboard that show these values over a 24 hour period and take a screenshot.
