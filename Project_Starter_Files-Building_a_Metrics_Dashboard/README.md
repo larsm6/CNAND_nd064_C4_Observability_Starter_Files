@@ -2,7 +2,7 @@
 
 ## Verify the monitoring installation
 
-- :heavy_check_mark: *TODO:* run `kubectl` command to show the running pods and services for the three components. Copy and paste the output or take a screenshot of the output and include it here to verify the installation
+- [x] *TODO:* run `kubectl` command to show the running pods and services for the three components. Copy and paste the output or take a screenshot of the output and include it here to verify the installation
 
 ```bash
 $ echo "" && echo "/*** App Pods: ***/" && kubectl get pods && echo "" && echo "/*** App Services ***/" && kubectl get services
