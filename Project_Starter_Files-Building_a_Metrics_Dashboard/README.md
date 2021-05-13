@@ -55,13 +55,14 @@ __Answer:__
 - A common Service Level Agreement is based on the uptime. So we could add it to the list of helpful SLOs for a customer.
 - Based on those SLO's and provided examples I created a table to describe the metrics for measuring corresponding SLI's:
 
-| SLO        | Example | SLI      |
-| :--------- | :–-----: | :–-----: |
-| Uptime     | The weekly uptime should be 99.1% or higher | In order to measure Uptime realiable, we would need to look wether each request returned a successful response. Problems come attached to such a way of monitoring the uptime: e.g. we wouldn't know if requests or responses get lost. So we might want to use a different approach and send a specific GET request from the client on a regular basis (e.g. every X minute) which is supposed to be answered by a 200 Status response. Then we could alert if this might fail. |
-| Latency    |  |  |
-| Traffic    |  |  |
-| Errors     |  |  |
-| Saturation |  |  |
+|SLO                |Example                          |SLI & Metric                         |
+|:-----------------:|:-------------------------------:|:-----------------------------------:|
+| Uptime | The weekly uptime should be 99.1% or higher | In order to measure Uptime realiable, we would need to look wether each request returned a successful response. Problems come attached to such a way of monitoring the uptime: e.g. we wouldn't know if requests or responses get lost. So we might want to use a different approach and send a specific GET request from the client on a regular basis (e.g. every X minute) which is supposed to be answered by a 200 Status response. Then we could alert if this might fail. So you would have a Request rate and an Error rate. By calculating the error to request ratio you would be able provide an uptime over a certain amount of time. |
+| Latency | x | x |
+| Traffic | x | x |
+| Errors | x | x |
+| Saturation | x | x |
+
 
 ## Create a Dashboard to measure our SLIs
 - [ ] *TODO:* Create a dashboard to measure the uptime of the frontend and backend services We will also want to measure to measure 40x and 50x errors. Create a dashboard that show these values over a 24 hour period and take a screenshot.
