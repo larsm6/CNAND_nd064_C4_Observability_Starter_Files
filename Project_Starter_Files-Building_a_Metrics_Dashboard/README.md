@@ -35,7 +35,13 @@ trial-service      LoadBalancer   100.68.191.3     <pending>     8080:31204/TCP 
 - [x] *TODO:* Create a dashboard in Grafana that shows Prometheus as a source. Take a screenshot and include it here.
 
 ## Describe SLO/SLI
-- [ ] *TODO:* Describe, in your own words, what the SLIs are, based on an SLO of *monthly uptime* and *request response time*.
+- [x] *TODO:* Describe, in your own words, what the SLIs are, based on an SLO of *monthly uptime* and *request response time*.
+
+__Answer:__ 
+- In general SLIs are metrics, that indicate whether we have reached a specific goal. Such a goal is given by a SLO (Service Level Objective). In our case we have *monthly uptime* and *request response time*. So we need to ask ourselfs: 'what do we need to measure in order to fulfill those SLOs?' 
+- A given SLO of *"monthly uptime should be XX% or higher"* would be measured by the the fraction of time that a service is usable within a month. In order to do so, we need validate that at least XX% of all requests are successful.
+- A given SLO of *request response time should be less than 70ms* would be measured by monitoring the average latency of requests within a certain periode of time and validating that it is less than 70ms. 
+
 
 ## Creating SLI metrics.
 - [ ] *TODO:* It is important to know why we want to measure certain metrics for our customer. Describe in detail 5 metrics to measure these SLIs. 
