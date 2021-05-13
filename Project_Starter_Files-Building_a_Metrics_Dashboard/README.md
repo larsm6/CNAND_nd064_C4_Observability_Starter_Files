@@ -58,10 +58,10 @@ __Answer:__
 |SLO                |Example                          |SLI & Metric                         |
 |:-----------------:|:-------------------------------:|:-----------------------------------:|
 | Uptime | The weekly uptime should be 99.1% or higher | In order to measure Uptime realiable, we would need to look wether each request returned a successful response. Problems come attached to such a way of monitoring the uptime: e.g. we wouldn't know if requests or responses get lost. So we might want to use a different approach and send a specific GET request from the client on a regular basis (e.g. every X minute) which is supposed to be answered by a 200 Status response. Then we could alert if this might fail. So you would have a Request rate and an Error rate. By calculating the error to request ratio you would be able provide an uptime over a certain amount of time. |
-| Latency | x | x |
-| Traffic | x | x |
-| Errors | x | x |
-| Saturation | x | x |
+| Latency | The daily average latency should be less than 70ms. | In order to measure the __latency__ we need to measure the response time of all requests that come from a client within a certain time (a day for our example) and devide it by the number of requests within that time period.|
+| Traffic | Number of Requests per second. | The provided example isn't a SLO because traffic is nothing that would be good or bad for our service or application as long as we are able to handle the traffic. What we would want to know would be the resilience of our system in high traffic periods. Therefore we could define a Service Objective that says that the latency should never vary by more than 15ms on average for more than 10 minutes if the traffic is three times more than the daily average. |
+| Errors | The monthly request error rate is supposed to be less than 0.3%. | We would trace all errors of our service and devide the number of errors by the number of requests within a month. |
+| Saturation | The message queue shouldn't have more than XXX messages in queue for 99% of a day. | We would have to measure the amount of messages in the Message Queue every 30s. We would then identify the time period where more than XXX messages are in queue and divide it by one day. The resulting ratio is supposed to be less than 1%. |
 
 
 ## Create a Dashboard to measure our SLIs
