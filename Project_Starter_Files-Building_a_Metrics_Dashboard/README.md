@@ -4,6 +4,29 @@
 
 *TODO:* run `kubectl` command to show the running pods and services for the three components. Copy and paste the output or take a screenshot of the output and include it here to verify the installation
 
+```bash
+$ echo "" && echo "/*** App Pods: ***/" && kubectl get pods && echo "" && echo "/*** App Services ***/" && kubectl get services
+
+/*** App Pods: ***/
+NAME                           READY   STATUS    RESTARTS   AGE
+backend-app-5f749755f4-dxf7f   1/1     Running   0          37m
+backend-app-5f749755f4-sll4v   1/1     Running   0          37m
+backend-app-5f749755f4-w2xs5   1/1     Running   0          37m
+frontend-app-75cd57cfd-49jx2   1/1     Running   0          37m
+frontend-app-75cd57cfd-bbnpq   1/1     Running   0          37m
+frontend-app-75cd57cfd-fxd42   1/1     Running   0          37m
+trial-app-6cd98d67f4-75bc7     1/1     Running   0          37m
+trial-app-6cd98d67f4-c77mv     1/1     Running   0          37m
+trial-app-6cd98d67f4-wt7kb     1/1     Running   0          37m
+
+/*** App Services ***/
+NAME               TYPE           CLUSTER-IP       EXTERNAL-IP   PORT(S)          AGE
+backend-service    LoadBalancer   100.70.76.213    <pending>     80:30039/TCP     37m
+frontend-service   LoadBalancer   100.65.199.104   <pending>     8080:31707/TCP   37m
+kubernetes         ClusterIP      100.64.0.1       <none>        443/TCP          47m
+trial-service      LoadBalancer   100.68.191.3     <pending>     8080:31204/TCP   37m
+```
+
 ## Setup the Jaeger and Prometheus source
 *TODO:* Expose Grafana to the internet and then setup Prometheus as a data source. Provide a screenshot of the home page after logging into Grafana.
 

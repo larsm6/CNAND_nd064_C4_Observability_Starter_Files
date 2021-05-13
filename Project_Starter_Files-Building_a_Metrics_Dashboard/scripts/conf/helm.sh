@@ -14,6 +14,7 @@ echo "**** Update Helm Repo"
 helm repo update
 
 echo "**** Installing kube-prometheus-stack via helm"
-helm install prometheus prometheus-community/kube-prometheus-stack --namespace monitoring --kubeconfig /etc/rancher/k3s/k3s.yaml
+# helm install prometheus prometheus-community/kube-prometheus-stack --namespace monitoring --kubeconfig /etc/rancher/k3s/k3s.yaml
+helm install prometheus prometheus-community/kube-prometheus-stack --namespace monitoring --kubeconfig ~/.kube/config
 
 echo "**** End configuring helm"

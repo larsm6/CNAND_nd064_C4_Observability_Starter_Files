@@ -6,6 +6,9 @@ project_path=$(pwd)
 # initialize namespace
 sh ./scripts/conf/kubectl-namespace.sh
 
+# install helm
+sh ./scripts/helm.sh
+
 # initialize helm
 sh ./scripts/conf/helm.sh
 
