@@ -1,5 +1,5 @@
 #!/bin/bash
-export PATH=$PATH:/usr/local/bin
+#export PATH=$PATH:/usr/local/bin
 
 #Forward ports
 echo "**** Forward Ports"

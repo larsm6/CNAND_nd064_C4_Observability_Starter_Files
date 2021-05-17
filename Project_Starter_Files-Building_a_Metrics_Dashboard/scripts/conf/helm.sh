@@ -1,6 +1,6 @@
 #!/bin/bash
 echo "**** Begin configuring helm"
-export PATH=$PATH:/usr/local/bin
+# export PATH=$PATH:/usr/local/bin
 
 echo "**** Adding prometheus-community to helm"
 # Add Premetheus to the helm repo
@@ -16,5 +16,6 @@ helm repo update
 echo "**** Installing kube-prometheus-stack via helm"
 # helm install prometheus prometheus-community/kube-prometheus-stack --namespace monitoring --kubeconfig /etc/rancher/k3s/k3s.yaml
 helm install prometheus prometheus-community/kube-prometheus-stack --namespace monitoring --kubeconfig ~/.kube/config
+# helm install prometheus prometheus-community/kube-prometheus-stack --namespace monitoring
 
 echo "**** End configuring helm"
