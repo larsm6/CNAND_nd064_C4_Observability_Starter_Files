@@ -1,5 +1,4 @@
 #!/bin/bash
-
 # save project path
 project_path=$(pwd)
 
