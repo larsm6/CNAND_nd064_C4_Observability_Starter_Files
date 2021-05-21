@@ -13,7 +13,6 @@ spec:
     metadata:
       labels:
         app: frontend
-        tier: frontend
     spec:
       containers:
         - name: frontend
@@ -30,12 +29,12 @@ metadata:
   annotations:
     loadbalancer.openstack.org/keep-floatingip: "true"
 spec:
-  type: LoadBalancer
   ports:
-    - port: 8080
+    - protocol: TCP
+      port: 8080
+      targetPort: 8080
+#    - port: 8080
   selector:
     app: frontend
-    tier: frontend
-    type: loadBalancer
+  type: LoadBalancer
 #    loadBalancerIP: <IP>
-

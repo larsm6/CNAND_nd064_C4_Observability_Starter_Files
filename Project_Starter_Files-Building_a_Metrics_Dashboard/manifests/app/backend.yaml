@@ -2,6 +2,8 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: backend-app
+  labels:
+    app: backend
 spec:
   replicas: 3
   selector:
@@ -11,21 +13,28 @@ spec:
     metadata:
       labels:
         app: backend
+        tier: backend
     spec:
       containers:
-      - name: backend
-        image: ghcr.io/thejaysmith/backend:v1
-        ports:
-        - containerPort: 8080
+        - name: backend
+          image: ghcr.io/thejaysmith/backend:v1
+          ports:
+            - containerPort: 8080
 ---
 apiVersion: v1
 kind: Service
 metadata:
   name: backend-service
+  labels:
+    app: backend
+  annotations:
+    loadbalancer.openstack.org/keep-floatingip: "true"
 spec:
+  type: LoadBalancer
+  ports:
+    - port: 8080
   selector:
     app: backend
-  ports:
-    - port: 80
-      targetPort: 8080
-  type: LoadBalancer
+    tier: backend
+    type: LoadBalancer
+    loadBalancerIP: 193.148.161.253

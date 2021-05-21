@@ -1,4 +1,4 @@
-kubectl -n default delete namespaces --all --grace-period 0 --force
+kubectl delete namespaces --all --grace-period 0 --force
 kubectl -n default delete jaeger --all
 kubectl -n default delete deployments --all
 kubectl -n default delete services --all

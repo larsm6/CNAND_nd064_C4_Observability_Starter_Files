@@ -18,7 +18,7 @@ sh ./scripts/conf/jaeger.sh
 sh ./scripts/conf/jaeger-cluster-visibility.sh
 
 ### # Create Load Balancer
-### sh ./scripts/conf/kubectl-create-loadbalancer.sh
+sh ./scripts/conf/kubectl-create-loadbalancer.sh
 
 # Initialize App
 sh ./scripts/initialize-app.sh

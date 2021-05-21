@@ -2,6 +2,8 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: trial-app
+  labels:
+    app: trial
 spec:
   replicas: 3
   selector:
@@ -11,6 +13,7 @@ spec:
     metadata:
       labels:
         app: trial
+        tier: trial
     spec:
       containers:
       - name: trial
@@ -22,10 +25,16 @@ apiVersion: v1
 kind: Service
 metadata:
   name: trial-service
-spec:
-  selector:
+  labels:
     app: trial
+  annotations:
+    loadbalancer.openstack.org/keep-floatingip: "true"
+spec:
+  type: LoadBalancer
   ports:
     - port: 8080
-      targetPort: 8080
-  type: LoadBalancer
+  selector:
+    app: trial
+    tier: trial
+    type: LoadBalancer
+#    loadBalancerIP: <IP>

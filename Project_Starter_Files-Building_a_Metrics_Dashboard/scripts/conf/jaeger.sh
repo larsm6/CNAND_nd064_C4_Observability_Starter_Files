@@ -23,6 +23,6 @@ kubectl create -n observability -f https://raw.githubusercontent.com/jaegertraci
 kubectl_port_forward_jaeger_cmd="kubectl -n observability port-forward svc/jaeger-operator-metrics 16686"
 
 #Forward application port in background
-# $kubectl_port_forward_jaeger_cmd &
+$kubectl_port_forward_jaeger_cmd &
 
 echo "**** End installation of Jaeger"
