@@ -37,4 +37,4 @@ spec:
     app: backend
     tier: backend
     type: LoadBalancer
-    loadBalancerIP: 193.148.161.253
+#    loadBalancerIP: 193.148.166.202

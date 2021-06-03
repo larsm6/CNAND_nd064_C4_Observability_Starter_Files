@@ -36,6 +36,5 @@ spec:
   selector:
     app: frontend
     tier: frontend
-    type: loadBalancer
-#    loadBalancerIP: <IP>
-
+    type: LoadBalancer
+#    loadBalancerIP: 193.148.166.189

@@ -37,4 +37,4 @@ spec:
     app: trial
     tier: trial
     type: LoadBalancer
-#    loadBalancerIP: <IP>
+#    loadBalancerIP: 193.148.166.32
