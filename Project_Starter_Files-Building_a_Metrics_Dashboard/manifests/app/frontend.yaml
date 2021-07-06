@@ -2,8 +2,8 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: frontend-app
-  labels:
-    app: frontend
+  annotations:
+    "sidecar.jaegertracing.io/inject": "true"
 spec:
   replicas: 3
   selector:
@@ -13,28 +13,21 @@ spec:
     metadata:
       labels:
         app: frontend
-        tier: frontend
     spec:
       containers:
-        - name: frontend
-          image: ghcr.io/thejaysmith/myfrontend:v1
-          ports:
-            - containerPort: 8080
+      - name: frontend
+        image: ghcr.io/thejaysmith/myfrontend:v1
+        ports:
+        - containerPort: 8080
 ---
 apiVersion: v1
 kind: Service
 metadata:
   name: frontend-service
-  labels:
-    app: frontend
-  annotations:
-    loadbalancer.openstack.org/keep-floatingip: "true"
 spec:
-  type: LoadBalancer
-  ports:
-    - port: 8080
   selector:
     app: frontend
-    tier: frontend
-    type: LoadBalancer
-#    loadBalancerIP: 193.148.166.189
+  ports:
+    - port: 8080
+      targetPort: 8080
+  type: LoadBalancer
